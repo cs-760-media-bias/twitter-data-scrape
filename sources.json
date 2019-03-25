@@ -1,0 +1,18 @@
+{
+    "sources": [
+        {
+            "human_name": "ABC News",
+            "id": "abc",
+            "twitter_handle": "@ABC",
+            "ad_fontes_x": 0,
+            "ad_fontes_y": 57
+        },
+        {
+            "human_name": "AFP News",
+            "id": "afp",
+            "twitter_handle": "@AFP",
+            "ad_fontes_x": 0,
+            "ad_fontes_y": 62
+        }
+    ]
+}
