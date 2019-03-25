@@ -14,6 +14,7 @@ def get_article(url):
         'title': article.title,
         'authors': article.authors,
         'text': article.text,
+        'html': article.html
     }
 
 if __name__ == '__main__':
