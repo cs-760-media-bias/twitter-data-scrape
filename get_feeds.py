@@ -3,9 +3,10 @@ import os
 import sys
 import twitter
 
-# The user of this script needs to add a twitter_auth.py file which 
+# The user of this script needs to add a twitter_auth.py file which
 # defines these variables
 from twitter_auth import ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET, CONSUMER_KEY, CONSUMER_SECRET
+
 
 # This is based on an example from github.com/bear/python-twitter
 def get_tweets(api, screen_name):
@@ -29,6 +30,7 @@ def get_tweets(api, screen_name):
     print()
     return timeline
 
+
 if __name__ == '__main__':
     api = twitter.Api(
         access_token_key=ACCESS_TOKEN_KEY,
@@ -44,11 +46,12 @@ if __name__ == '__main__':
         if os.path.isfile(tweet_filename):
             print('File ' + tweet_filename + ' already exists, skipping...')
             continue
+        tweet_file = open(tweet_filename, 'w')
+
         print('Getting recent Tweets for ' + source['human_name'])
         tweets = get_tweets(api, source['twitter_handle'])
-        
+
         print('Writing Tweets to disk...')
-        tweet_file = open(tweet_filename, 'w')
         tweet_file.write('{ "tweets": [\n')
         for tweet in tweets:
             tweet_file.write(json.dumps(tweet._json, indent=2))
