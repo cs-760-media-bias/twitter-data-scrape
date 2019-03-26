@@ -2,17 +2,549 @@
     "sources": [
         {
             "human_name": "ABC News",
-            "id": "abc",
-            "twitter_handle": "@ABC",
-            "ad_fontes_x": 0,
-            "ad_fontes_y": 57
+            "twitter_handles": ["abc"],
+            "ad_fontes_y": 57,
+            "ad_fontes_x": 0
         },
         {
             "human_name": "AFP News",
-            "id": "afp",
-            "twitter_handle": "@AFP",
-            "ad_fontes_x": 0,
-            "ad_fontes_y": 62
+            "twitter_handles": ["afp"],
+            "ad_fontes_y": 62,
+            "ad_fontes_x": 0
+        },
+        {
+            "human_name": "Al Jazeera",
+            "twitter_handles": ["ajenews", "ajenglish"],
+            "ad_fontes_y": 54,
+            "ad_fontes_x": -1
+        },
+        {
+            "human_name": "Alternet",
+            "twitter_handles": ["alternet"],
+            "ad_fontes_y": 18,
+            "ad_fontes_x": -23
+        },
+        {
+            "human_name": "Associated Press",
+            "twitter_handles": ["ap"],
+            "ad_fontes_y": 62,
+            "ad_fontes_x": 0
+        },
+        {
+            "human_name": "Axios",
+            "twitter_handles": ["axios"],
+            "ad_fontes_y": 52,
+            "ad_fontes_x": -2
+        },
+        {
+            "human_name": "BBC",
+            "twitter_handles": ["bbc", "bbcworld", "bbcbreaking"],
+            "ad_fontes_y": 54,
+            "ad_fontes_x": -3
+        },
+        {
+            "human_name": "Bipartisan Report",
+            "twitter_handles": ["bipartisanism"],
+            "ad_fontes_y": 13,
+            "ad_fontes_x": -27
+        },
+        {
+            "human_name": "Bloomberg",
+            "twitter_handles": ["business"],
+            "ad_fontes_y": 58,
+            "ad_fontes_x": 4
+        },
+        {
+            "human_name": "Breitbart",
+            "twitter_handles": ["breitbartnews"],
+            "ad_fontes_y": 8,
+            "ad_fontes_x": 34
+        },
+        {
+            "human_name": "Business Insider",
+            "twitter_handles": ["businessinsider"],
+            "ad_fontes_y": 39,
+            "ad_fontes_x": 0
+        },
+        {
+            "human_name": "BuzzFeed News",
+            "twitter_handles": ["buzzfeednews"],
+            "ad_fontes_y": 51,
+            "ad_fontes_x": -15
+        },
+        {
+            "human_name": "CBS",
+            "twitter_handles": ["cbs", "cbsnews"],
+            "ad_fontes_y": 57,
+            "ad_fontes_x": 4
+        },
+        {
+            "human_name": "CNN",
+            "twitter_handles": ["cnn", "cnnbrk", "cnni", "cnnpolitics"],
+            "ad_fontes_y": 32,
+            "ad_fontes_x": -6
+        },
+        {
+            "human_name": "Conservative Tribune",
+            "twitter_handles": ["conserv_tribune"],
+            "ad_fontes_y": 12,
+            "ad_fontes_x": 35
+        },
+        {
+            "human_name": "CSPAN",
+            "twitter_handles": ["cspan"],
+            "ad_fontes_y": 59,
+            "ad_fontes_x": 0
+        },
+        {
+            "human_name": "Daily Beast",
+            "twitter_handles": ["thedailybeast"],
+            "ad_fontes_y": 41,
+            "ad_fontes_x": -21
+        },
+        {
+            "human_name": "Daily Caller",
+            "twitter_handles": ["dailycaller", "thedcpolitics"],
+            "ad_fontes_y": 12,
+            "ad_fontes_x": 24
+        },
+        {
+            "human_name": "Daily Kos",
+            "twitter_handles": ["dailykos"],
+            "ad_fontes_y": 20,
+            "ad_fontes_x": -24
+        },
+        {
+            "human_name": "Daily Mail",
+            "twitter_handles": ["mailonline", "dailymail"],
+            "ad_fontes_y": 19,
+            "ad_fontes_x": 13
+        },
+        {
+            "human_name": "Daily Signal",
+            "twitter_handles": ["dailysignal"],
+            "ad_fontes_y": 30,
+            "ad_fontes_x": -15
+        },
+        {
+            "human_name": "Daily Wire",
+            "twitter_handles": ["realdailywire"],
+            "ad_fontes_y": 16,
+            "ad_fontes_x": 28
+        },
+        {
+            "human_name": "Democracy Now",
+            "twitter_handles": ["democracynow"],
+            "ad_fontes_y": 48,
+            "ad_fontes_x": -19
+        },
+        {
+            "human_name": "Financial Times",
+            "twitter_handles": ["financialtimes", "ft"],
+            "ad_fontes_y": 48,
+            "ad_fontes_x": 3
+        },
+        {
+            "human_name": "Forbes",
+            "twitter_handles": ["forbes"],
+            "ad_fontes_y": 44,
+            "ad_fontes_x": 3
+        },
+        {
+            "human_name": "Foreign Policy",
+            "twitter_handles": ["foreignpolicy"],
+            "ad_fontes_y": 45,
+            "ad_fontes_x": 9
+        },
+        {
+            "human_name": "Fortune",
+            "twitter_handles": ["fortunemagazine"],
+            "ad_fontes_y": 46,
+            "ad_fontes_x": 5
+        },
+        {
+            "human_name": "Fox",
+            "twitter_handles": ["foxnews", "foxheadlines"],
+            "ad_fontes_y": 20,
+            "ad_fontes_x": 27
+        },
+        {
+            "human_name": "FreeSpeech TV",
+            "twitter_handles": ["freespeechtv"],
+            "ad_fontes_y": 37,
+            "ad_fontes_x": -25
+        },
+        {
+            "human_name": "Huffington Post",
+            "twitter_handles": ["huffpost"],
+            "ad_fontes_y": 24,
+            "ad_fontes_x": -20
+        },
+        {
+            "human_name": "IJR",
+            "twitter_handles": ["theijr"],
+            "ad_fontes_y": 41,
+            "ad_fontes_x": 2
+        },
+        {
+            "human_name": "Intercept",
+            "twitter_handles": ["theintercept"],
+            "ad_fontes_y": 49,
+            "ad_fontes_x": -23
+        },
+        {
+            "human_name": "Jacobin",
+            "twitter_handles": ["jacobinmag"],
+            "ad_fontes_y": 47,
+            "ad_fontes_x": -28
+        },
+        {
+            "human_name": "LA Times",
+            "twitter_handles": ["lanow"],
+            "ad_fontes_y": 58,
+            "ad_fontes_x": -6
+        },
+        {
+            "human_name": "Marketwatch",
+            "twitter_handles": ["marketwatch"],
+            "ad_fontes_y": 50,
+            "ad_fontes_x": 5
+        },
+        {
+            "human_name": "Mic",
+            "twitter_handles": ["mic"],
+            "ad_fontes_y": 39,
+            "ad_fontes_x": -18
+        },
+        {
+            "human_name": "Mother Jones",
+            "twitter_handles": ["motherjones"],
+            "ad_fontes_y": 40,
+            "ad_fontes_x": -24
+        },
+        {
+            "human_name": "MSNBC",
+            "twitter_handles": ["msnbc"],
+            "ad_fontes_y": 34,
+            "ad_fontes_x": -19
+        },
+        {
+            "human_name": "National Enquirer",
+            "twitter_handles": ["natenquirer"],
+            "ad_fontes_y": 6,
+            "ad_fontes_x": 10
+        },
+        {
+            "human_name": "National Review",
+            "twitter_handles": ["nro"],
+            "ad_fontes_y": 51,
+            "ad_fontes_x": 20
+        },
+        {
+            "human_name": "NBC",
+            "twitter_handles": ["nbcnews", "nbcpolitics"],
+            "ad_fontes_y": 57,
+            "ad_fontes_x": -3
+        },
+        {
+            "human_name": "New Republic",
+            "twitter_handles": ["newrepublic"],
+            "ad_fontes_y": 46,
+            "ad_fontes_x": -19
+        },
+        {
+            "human_name": "New York Post",
+            "twitter_handles": ["nypost"],
+            "ad_fontes_y": 20,
+            "ad_fontes_x": 18
+        },
+        {
+            "human_name": "New York Times",
+            "twitter_handles": ["nytimes", "nytimesworld"],
+            "ad_fontes_y": 52,
+            "ad_fontes_x": -5
+        },
+        {
+            "human_name": "NewsMax",
+            "twitter_handles": ["newsmax"],
+            "ad_fontes_y": 43,
+            "ad_fontes_x": -28
+        },
+        {
+            "human_name": "NPR",
+            "twitter_handles": ["npr", "nprpolitics"],
+            "ad_fontes_y": 56,
+            "ad_fontes_x": -5
+        },
+        {
+            "human_name": "OAN",
+            "twitter_handles": ["oann"],
+            "ad_fontes_y": 23,
+            "ad_fontes_x": 28
+        },
+        {
+            "human_name": "Occupy Democrats",
+            "twitter_handles": ["occupydemocrats"],
+            "ad_fontes_y": 9,
+            "ad_fontes_x": -30
+        },
+        {
+            "human_name": "OZY",
+            "twitter_handles": ["ozy"],
+            "ad_fontes_y": 43,
+            "ad_fontes_x": 0
+        },
+        {
+            "human_name": "Palmer Report",
+            "twitter_handles": ["palmerreport"],
+            "ad_fontes_y": 8,
+            "ad_fontes_x": -34
+        },
+        {
+            "human_name": "Patribotics",
+            "twitter_handles": ["patribotics"],
+            "ad_fontes_y": 1,
+            "ad_fontes_x": -40
+        },
+        {
+            "human_name": "PBS",
+            "twitter_handles": ["pbs", "pbsnewshour"],
+            "ad_fontes_y": 57,
+            "ad_fontes_x": -5
+        },
+        {
+            "human_name": "Politico",
+            "twitter_handles": ["politico", "politicomag"],
+            "ad_fontes_y": 55,
+            "ad_fontes_x": -3
+        },
+        {
+            "human_name": "ProPublica",
+            "twitter_handles": ["propublica"],
+            "ad_fontes_y": 46,
+            "ad_fontes_x": -5
+        },
+        {
+            "human_name": "Quartz",
+            "twitter_handles": ["qz"],
+            "ad_fontes_y": 44,
+            "ad_fontes_x": -5
+        },
+        {
+            "human_name": "Reason",
+            "twitter_handles": ["reason"],
+            "ad_fontes_y": 42,
+            "ad_fontes_x": 18
+        },
+        {
+            "human_name": "RedState",
+            "twitter_handles": ["redstate"],
+            "ad_fontes_y": 11,
+            "ad_fontes_x": 29
+        },
+        {
+            "human_name": "Reuters",
+            "twitter_handles": ["reuters"],
+            "ad_fontes_y": 62,
+            "ad_fontes_x": 0
+        },
+        {
+            "human_name": "ShareBlue",
+            "twitter_handles": ["shareblue"],
+            "ad_fontes_y": 33,
+            "ad_fontes_x": -21
+        },
+        {
+            "human_name": "Slate",
+            "twitter_handles": ["slate"],
+            "ad_fontes_y": 43,
+            "ad_fontes_x": -20
+        },
+        {
+            "human_name": "Talking Points Memo",
+            "twitter_handles": ["tpm"],
+            "ad_fontes_y": 41,
+            "ad_fontes_x": -13
+        },
+        {
+            "human_name": "The Advocate",
+            "twitter_handles": ["theadvocatemag"],
+            "ad_fontes_y": 40,
+            "ad_fontes_x": -23
+        },
+        {
+            "human_name": "The American Conservative",
+            "twitter_handles": ["amconmag"],
+            "ad_fontes_y": 33,
+            "ad_fontes_x": 28
+        },
+        {
+            "human_name": "The Atlantic",
+            "twitter_handles": ["theatlantic", "theatlanticpolitics"],
+            "ad_fontes_y": 46,
+            "ad_fontes_x": -15
+        },
+        {
+            "human_name": "The Blaze",
+            "twitter_handles": ["theblaze"],
+            "ad_fontes_y": 8,
+            "ad_fontes_x": 27
+        },
+        {
+            "human_name": "The Economist",
+            "twitter_handles": ["theeconomist", "econus"],
+            "ad_fontes_y": 48,
+            "ad_fontes_x": 4
+        },
+        {
+            "human_name": "The Federalist",
+            "twitter_handles": ["fdrlst"],
+            "ad_fontes_y": 26,
+            "ad_fontes_x": 27
+        },
+        {
+            "human_name": "The Guardian",
+            "twitter_handles": ["guardian", "guardiannews", "gdnpolitics"],
+            "ad_fontes_y": 48,
+            "ad_fontes_x": -6
+        },
+        {
+            "human_name": "The Hill",
+            "twitter_handles": ["thehill"],
+            "ad_fontes_y": 54,
+            "ad_fontes_x": 9
+        },
+        {
+            "human_name": "The Nation",
+            "twitter_handles": ["thenation"],
+            "ad_fontes_y": 47,
+            "ad_fontes_x": -17
+        },
+        {
+            "human_name": "The New Yorker",
+            "twitter_handles": ["newyorker"],
+            "ad_fontes_y": 47,
+            "ad_fontes_x": -9
+        },
+        {
+            "human_name": "The Skimm",
+            "twitter_handles": ["theskimm"],
+            "ad_fontes_y": 49,
+            "ad_fontes_x": -2
+        },
+        {
+            "human_name": "The Week",
+            "twitter_handles": ["theweek"],
+            "ad_fontes_y": 44,
+            "ad_fontes_x": -10
+        },
+        {
+            "human_name": "The Weekly Standard",
+            "twitter_handles": ["weeklystandard"],
+            "ad_fontes_y": 46,
+            "ad_fontes_x": 18
+        },
+        {
+            "human_name": "The Young Turks",
+            "twitter_handles": ["theyoungturks"],
+            "ad_fontes_y": 27,
+            "ad_fontes_x": -24
+        },
+        {
+            "human_name": "Think Progress",
+            "twitter_handles": ["thinkprogress"],
+            "ad_fontes_y": 42,
+            "ad_fontes_x": -13
+        },
+        {
+            "human_name": "Time",
+            "twitter_handles": ["time"],
+            "ad_fontes_y": 43,
+            "ad_fontes_x": -1
+        },
+        {
+            "human_name": "Truthout",
+            "twitter_handles": ["truthout"],
+            "ad_fontes_y": 36,
+            "ad_fontes_x": -24
+        },
+        {
+            "human_name": "USA Today",
+            "twitter_handles": ["usatoday"],
+            "ad_fontes_y": 52,
+            "ad_fontes_x": 0
+        },
+        {
+            "human_name": "Vanity Fair",
+            "twitter_handles": ["vanityfair"],
+            "ad_fontes_y": 38,
+            "ad_fontes_x": -12
+        },
+        {
+            "human_name": "Vice",
+            "twitter_handles": ["vice", "vicenews"],
+            "ad_fontes_y": 42,
+            "ad_fontes_x": -10
+        },
+        {
+            "human_name": "Vox",
+            "twitter_handles": ["voxdotcom"],
+            "ad_fontes_y": 43,
+            "ad_fontes_x": -16
+        },
+        {
+            "human_name": "Wall Street Journal",
+            "twitter_handles": ["wsj"],
+            "ad_fontes_y": 53,
+            "ad_fontes_x": 11
+        },
+        {
+            "human_name": "Washington Examiner",
+            "twitter_handles": ["dcexaminer"],
+            "ad_fontes_y": 35,
+            "ad_fontes_x": 18
+        },
+        {
+            "human_name": "Washington Free Beacon",
+            "twitter_handles": ["freebeacon"],
+            "ad_fontes_y": 41,
+            "ad_fontes_x": 24
+        },
+        {
+            "human_name": "Washington Monthly",
+            "twitter_handles": ["washmonthly"],
+            "ad_fontes_y": 30,
+            "ad_fontes_x": -23
+        },
+        {
+            "human_name": "Washington Post",
+            "twitter_handles": ["washingtonpost"],
+            "ad_fontes_y": 51,
+            "ad_fontes_x": -10
+        },
+        {
+            "human_name": "Washington Times",
+            "twitter_handles": ["washtimes"],
+            "ad_fontes_y": 33,
+            "ad_fontes_x": 20
+        },
+        {
+            "human_name": "WND",
+            "twitter_handles": ["worldnetdaily"],
+            "ad_fontes_y": 4,
+            "ad_fontes_x": 36
+        },
+        {
+            "human_name": "Wonkette",
+            "twitter_handles": ["wonkette"],
+            "ad_fontes_y": 12,
+            "ad_fontes_x": -34
+        },
+        {
+            "human_name": "WorldTruth.Tv",
+            "twitter_handles": ["worldtruthtv"],
+            "ad_fontes_y": 1,
+            "ad_fontes_x": 20
         }
     ]
 }

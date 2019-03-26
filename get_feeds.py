@@ -42,20 +42,21 @@ if __name__ == '__main__':
 
     sources = json.load(open('sources.json'))['sources']
     for source in sources:
-        tweet_filename = 'twitter_feeds/' + source['id'] + '.json'
-        if os.path.isfile(tweet_filename):
-            print('File ' + tweet_filename + ' already exists, skipping...')
-            continue
-        tweet_file = open(tweet_filename, 'w')
+        for handle in source['twitter_handles']:
+            tweet_filename = 'twitter_feeds/' + handle + '.json'
+            if os.path.isfile(tweet_filename):
+                print('File ' + tweet_filename + ' already exists, skipping...')
+                continue
+            tweet_file = open(tweet_filename, 'w')
 
-        print('Getting recent Tweets for ' + source['human_name'])
-        tweets = get_tweets(api, source['twitter_handle'])
+            print('Getting recent tweets for handle @' + handle)
+            tweets = get_tweets(api, '@' + handle)
 
-        print('Writing Tweets to disk...')
-        tweet_file.write('{ "tweets": [\n')
-        for tweet in tweets:
-            tweet_file.write(json.dumps(tweet._json, indent=2))
-            if tweet != tweets[-1]:
-                tweet_file.write(',')
-            tweet_file.write('\n')
-        tweet_file.write(']}')
+            print('Writing tweets to disk...')
+            tweet_file.write('{ "tweets": [\n')
+            for tweet in tweets:
+                tweet_file.write(json.dumps(tweet._json, indent=2))
+                if tweet != tweets[-1]:
+                    tweet_file.write(',')
+                tweet_file.write('\n')
+            tweet_file.write(']}')
