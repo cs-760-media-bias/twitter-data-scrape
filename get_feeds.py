@@ -31,7 +31,6 @@ def get_tweets(api, screen_name):
         else:
             earliest = new_earliest
             timeline += tweets
-    print()
     return timeline
 
 
@@ -56,7 +55,7 @@ if __name__ == '__main__':
             print('Getting recent tweets for handle @' + handle)
             tweets = get_tweets(api, '@' + handle)
 
-            print('Writing tweets to disk...')
+            print('\nWriting tweets to disk...')
             tweet_file.write('{ "tweets": [\n')
             for tweet in tweets:
                 tweet_file.write(json.dumps(tweet._json, indent=2))
