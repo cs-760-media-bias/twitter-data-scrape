@@ -13,6 +13,8 @@ def get_tweets(api, screen_name):
     sys.stdout.write('.')
     sys.stdout.flush()
     timeline = api.GetUserTimeline(screen_name=screen_name, count=200)
+    if len(timeline) == 0:
+        return timeline
     earliest = min(timeline, key=lambda x: x.id).id
     while True:
         sys.stdout.write('.')
@@ -21,6 +23,8 @@ def get_tweets(api, screen_name):
             screen_name=screen_name,
             max_id=earliest,
             count=200)
+        if len(tweets) == 0:
+            return timeline
         new_earliest = min(tweets, key=lambda x: x.id).id
         if not tweets or new_earliest == earliest:
             break
