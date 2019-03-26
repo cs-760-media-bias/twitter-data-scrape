@@ -50,12 +50,12 @@ if __name__ == '__main__':
             if os.path.isfile(tweet_filename):
                 print('File ' + tweet_filename + ' already exists, skipping...')
                 continue
-            tweet_file = open(tweet_filename, 'w')
 
             print('Getting recent tweets for handle @' + handle)
             tweets = get_tweets(api, '@' + handle)
 
             print('\nWriting tweets to disk...')
+            tweet_file = open(tweet_filename, 'w')
             tweet_file.write('{ "tweets": [\n')
             for tweet in tweets:
                 tweet_file.write(json.dumps(tweet._json, indent=2))
