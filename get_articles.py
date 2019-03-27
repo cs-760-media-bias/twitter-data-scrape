@@ -5,11 +5,11 @@ import sys
 
 
 def get_article(url):
-    sys.stdout.write('.')
-    sys.stdout.flush()
     article = newspaper.Article(url)
     article.download()
     article.parse()
+    sys.stdout.write('.')
+    sys.stdout.flush()
     return {
         'url': article.url,
         'title': article.title,
@@ -35,7 +35,7 @@ if __name__ == '__main__':
             article_file = open(article_filename, 'w')
 
             article_file.write('{\n')
-            print('Getting article sources for @' + handle)
+            sys.stdout.write('Getting article sources for @' + handle)
             for tweet in tweets:
                 for url_entity in tweet['entities']['urls']:
                     url = url_entity['expanded_url']
@@ -43,6 +43,8 @@ if __name__ == '__main__':
                     try:
                         article = get_article(url)
                     except:
+                        sys.stdout.write('!')
+                        sys.stdout.flush()
                         continue
                     article_file.write(f'"{url}":\n')
                     article_file.write(json.dumps(article, indent=2))
@@ -51,3 +53,4 @@ if __name__ == '__main__':
                     article_file.write('\n')
             article_file.write('}')
             article_file.close()
+            sys.stdout.write('\n')
