@@ -63,3 +63,4 @@ if __name__ == '__main__':
                     tweet_file.write(',')
                 tweet_file.write('\n')
             tweet_file.write(']}')
+            tweet_file.close()

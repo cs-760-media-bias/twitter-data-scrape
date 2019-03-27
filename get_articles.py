@@ -50,3 +50,4 @@ if __name__ == '__main__':
                         article_file.write(',')
                     article_file.write('\n')
             article_file.write('}')
+            article_file.close()
