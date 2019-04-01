@@ -43,7 +43,8 @@ if __name__ == '__main__':
         sleep_on_rate_limit=True,
         tweet_mode='extended')
 
-    sources = json.load(open('sources.json'))['sources']
+    with open('sources.json') as sources_file:
+        sources = json.load(sources_file)['sources']
     for source in sources:
         for handle in source['twitter_handles']:
             tweet_filename = 'twitter_feeds/' + handle + '.json'
@@ -51,7 +52,7 @@ if __name__ == '__main__':
                 print('File ' + tweet_filename + ' already exists, skipping...')
                 continue
 
-            print('Getting recent tweets for handle @' + handle)
+            sys.stdout.write('Getting recent tweets for handle @' + handle)
             tweets = get_tweets(api, '@' + handle)
 
             print('\nWriting tweets to disk...')

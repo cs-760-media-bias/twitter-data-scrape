@@ -68,6 +68,9 @@ if __name__ == '__main__':
     for source in sources:
         for handle in source['twitter_handles']:
             tweet_filename = os.path.join(FEED_PATH, handle + '.json')
+            if not os.path.isfile(tweet_filename):
+                print('No Twitter feed for @' + handle)
+                continue
             with open(tweet_filename) as in_file:
                 json_in = json.load(in_file)
             print('Cleaning up tweet file ' + tweet_filename + '...')
