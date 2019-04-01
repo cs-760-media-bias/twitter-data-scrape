@@ -1,15 +1,17 @@
+import concurrent.futures
 import json
 import newspaper
 import os
 import sys
+
+FEED_PATH = 'twitter_feeds'
+ARTICLE_PATH = 'article_sources'
 
 
 def get_article(url):
     article = newspaper.Article(url)
     article.download()
     article.parse()
-    sys.stdout.write('.')
-    sys.stdout.flush()
     return {
         'url': article.url,
         'title': article.title,
@@ -18,39 +20,45 @@ def get_article(url):
     }
 
 
+def save_source_articles(handle):
+    tweet_filename = os.path.join(FEED_PATH, handle + '.json')
+    if not os.path.isfile(tweet_filename):
+        print('No Twitter feed for @' + handle)
+        return
+    article_filename = os.path.join(ARTICLE_PATH, handle + '.json')
+    if os.path.isfile(article_filename):
+        print('File ' + article_filename + ' already exists, skipping...')
+        return
+
+    print('Getting article sources for @' + handle + '...')
+    with open(tweet_filename) as in_file:
+        tweets = json.load(in_file)['tweets']
+    articles_json = {}
+    for tweet in tweets:
+        for url_entity in tweet['entities']['urls']:
+            url = url_entity['expanded_url']
+            if url in articles_json:
+                continue
+            try:
+                article = get_article(url)
+                articles_json[url] = article
+                sys.stdout.write('.')
+                sys.stdout.flush()
+            except:
+                sys.stdout.write('!')
+                sys.stdout.flush()
+                continue
+
+    print('Writing articles to file ' + article_filename + '...')
+    with open(article_filename, 'w') as article_file:
+        json.dump(articles_json, article_file, indent=2)
+    sys.stdout.write('\n')
+
+
 if __name__ == '__main__':
-    sources = json.load(open('sources.json'))['sources']
+    with open('sources.json') as sources_file:
+        sources = json.load(sources_file)['sources']
+    executor = concurrent.futures.ProcessPoolExecutor(10)
     for source in sources:
         for handle in source['twitter_handles']:
-            tweet_filename = 'twitter_feeds/' + handle + '.json'
-            if not os.path.isfile(tweet_filename):
-                print('No Twitter feed for @' + handle)
-                continue
-            tweets = json.load(open(tweet_filename))['tweets']
-
-            article_filename = 'article_sources/' + handle + '.json'
-            if os.path.isfile(article_filename):
-                print('File ' + article_filename + ' already exists, skipping...')
-                continue
-            article_file = open(article_filename, 'w')
-
-            article_file.write('{\n')
-            sys.stdout.write('Getting article sources for @' + handle)
-            for tweet in tweets:
-                for url_entity in tweet['entities']['urls']:
-                    url = url_entity['expanded_url']
-                    article = None
-                    try:
-                        article = get_article(url)
-                    except:
-                        sys.stdout.write('!')
-                        sys.stdout.flush()
-                        continue
-                    article_file.write(f'"{url}":\n')
-                    article_file.write(json.dumps(article, indent=2))
-                    if tweet != tweets[-1]:
-                        article_file.write(',')
-                    article_file.write('\n')
-            article_file.write('}')
-            article_file.close()
-            sys.stdout.write('\n')
+            executor.submit(save_source_articles, handle)
