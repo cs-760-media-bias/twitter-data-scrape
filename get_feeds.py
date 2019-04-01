@@ -55,12 +55,8 @@ if __name__ == '__main__':
             tweets = get_tweets(api, '@' + handle)
 
             print('\nWriting tweets to disk...')
-            tweet_file = open(tweet_filename, 'w')
-            tweet_file.write('{ "tweets": [\n')
+            tweets_json = { 'tweets': [] }
             for tweet in tweets:
-                tweet_file.write(json.dumps(tweet._json, indent=2))
-                if tweet != tweets[-1]:
-                    tweet_file.write(',')
-                tweet_file.write('\n')
-            tweet_file.write(']}')
-            tweet_file.close()
+                tweets_json['tweets'].append(tweet._json)
+            with open(tweet_filename, 'w') as tweet_file:
+                json.dump(tweets_json, tweet_file, indent=2)
