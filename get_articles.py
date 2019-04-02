@@ -6,6 +6,7 @@ import sys
 
 FEED_PATH = 'twitter_feeds'
 ARTICLE_PATH = 'article_sources'
+RETRY_FAILED = True
 
 
 def get_article(url):
@@ -21,19 +22,27 @@ def get_article(url):
 
 
 def save_source_articles(handle):
+    print()
     tweet_filename = os.path.join(FEED_PATH, handle + '.json')
     if not os.path.isfile(tweet_filename):
         print('No Twitter feed for @' + handle)
         return
+    
     article_filename = os.path.join(ARTICLE_PATH, handle + '.json')
     if os.path.isfile(article_filename):
-        print('File ' + article_filename + ' already exists, skipping...')
-        return
+        if not RETRY_FAILED:
+            print('File ' + article_filename + ' already exists, skipping...')
+            return
+        print('Retrying failed articles for @' + handle + '...')
+        with open(article_filename, 'r') as article_file:
+            articles_json = json.load(article_file)
+    else:
+        print('Getting article sources for @' + handle + '...')
+        articles_json = {}
 
-    print('Getting article sources for @' + handle + '...')
+    
     with open(tweet_filename) as in_file:
         tweets = json.load(in_file)['tweets']
-    articles_json = {}
     for tweet in tweets:
         for url_entity in tweet['entities']['urls']:
             url = url_entity['expanded_url']
@@ -49,10 +58,9 @@ def save_source_articles(handle):
                 sys.stdout.flush()
                 continue
 
-    print('Writing articles to file ' + article_filename + '...')
+    print('\nWriting articles to file ' + article_filename + '...')
     with open(article_filename, 'w') as article_file:
         json.dump(articles_json, article_file, indent=2)
-    sys.stdout.write('\n')
 
 
 if __name__ == '__main__':
