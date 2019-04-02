@@ -4,8 +4,8 @@ import newspaper
 import os
 import sys
 
-FEED_PATH = 'twitter_feeds'
-ARTICLE_PATH = 'article_sources'
+FEED_PATH = 'tweets_raw'
+ARTICLE_PATH = 'articles'
 RETRY_FAILED = True
 
 

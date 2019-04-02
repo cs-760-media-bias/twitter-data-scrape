@@ -1,8 +1,8 @@
 import json
 import os
 
-FEED_PATH = 'twitter_feeds'
-OUT_PATH = 'cleaned_tweets'
+FEED_PATH = 'tweets_raw'
+OUT_PATH = 'tweets_tidy'
 
 
 def cleanup_user(user):

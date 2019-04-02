@@ -3,6 +3,8 @@ import os
 import sys
 import twitter
 
+FEED_PATH = 'tweets_raw'
+
 # The user of this script needs to add a twitter_auth.py file which
 # defines these variables
 from twitter_auth import ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET, CONSUMER_KEY, CONSUMER_SECRET
@@ -47,7 +49,7 @@ if __name__ == '__main__':
         sources = json.load(sources_file)['sources']
     for source in sources:
         for handle in source['twitter_handles']:
-            tweet_filename = 'twitter_feeds/' + handle + '.json'
+            tweet_filename = os.path.join(FEED_PATH, handle + '.json')
             if os.path.isfile(tweet_filename):
                 print('File ' + tweet_filename + ' already exists, skipping...')
                 continue
